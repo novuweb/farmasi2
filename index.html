@@ -1,0 +1,862 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Farmasi | Cosmética Premium Online</title>
+  <meta name="description" content="Descubre cosmética premium seleccionada con criterio. Asesoría personalizada de Vanesa. Envíos a toda España.">
+  <meta name="theme-color" content="#E91E63">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Farmasi | Cosmética Premium Online">
+  <meta property="og:description" content="Descubre cosmética premium seleccionada con criterio. Asesoría personalizada de Vanesa.">
+  <meta property="og:url" content="https://farmasi-vanesa.es/">
+  <meta property="og:image" content="hero.jpg">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <!-- Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "Farmasi por Vanesa Muinelo",
+    "description": "Distribuidora de cosmética premium online",
+    "telephone": "+34692851618",
+    "email": "vanesamv62@gmail.com",
+    "url": "https://www.farmasi.es/vanesamuinelovzquez1118",
+    "openingHours": "Mo-Fr 08:00-18:00"
+  }
+  </script>
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --pink:     #E91E63;
+      --pink-lt:  #F8BBD0;
+      --pink-dim: rgba(233,30,99,.08);
+      --white:    #FFFFFF;
+      --gray-bg:  #F5F5F5;
+      --gray-txt: #333333;
+      --gray-sec: #757575;
+      --dark:     #3D3D3D;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      color: var(--gray-txt);
+      background: var(--white);
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    a { text-decoration: none; color: inherit; }
+    img { display: block; max-width: 100%; }
+
+    /* ── FADE-IN ANIMATION ── */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity .8s ease-out, transform .8s ease-out;
+    }
+    .fade-in.visible { opacity: 1; transform: translateY(0); }
+    .delay-1 { transition-delay: .2s; }
+    .delay-2 { transition-delay: .4s; }
+    .delay-3 { transition-delay: .6s; }
+
+    /* ── DIVIDER ── */
+    .divider {
+      width: 60px; height: 2px;
+      background: var(--pink);
+      margin: 60px auto 0;
+      border: none;
+    }
+
+    /* ── SECTION LABEL ── */
+    .sec-label {
+      font-size: 12px; font-weight: 600;
+      letter-spacing: 3px; text-transform: uppercase;
+      color: var(--pink); margin-bottom: 12px;
+    }
+
+    /* ────────────── NAVBAR ────────────── */
+    nav.main-nav {
+      position: sticky; top: 0; z-index: 100;
+      height: 70px;
+      background: var(--white);
+      box-shadow: 0 1px 20px rgba(233,30,99,.08);
+      display: flex; align-items: center;
+    }
+    .nav-inner {
+      max-width: 1200px; margin: 0 auto; padding: 0 24px;
+      width: 100%; display: flex; align-items: center; justify-content: space-between;
+    }
+    .nav-logo {
+      display: flex; align-items: center; gap: 10px;
+      font-family: 'Playfair Display', serif;
+      font-size: 22px; font-weight: 700;
+      color: var(--pink); cursor: pointer;
+    }
+    .nav-logo img { height: 38px; width: auto; }
+    .nav-links {
+      display: flex; align-items: center; gap: 32px;
+      list-style: none;
+    }
+    .nav-links a {
+      font-size: 14px; font-weight: 500; color: var(--gray-txt);
+      transition: color .3s ease;
+    }
+    .nav-links a:hover { color: var(--pink); }
+    .btn-nav {
+      background: var(--pink); color: var(--white);
+      border: 2px solid var(--pink);
+      border-radius: 25px; padding: 10px 25px;
+      font-size: 14px; font-weight: 600;
+      font-family: 'Poppins', sans-serif;
+      cursor: pointer; transition: all .3s ease;
+      white-space: nowrap;
+    }
+    .btn-nav:hover { background: var(--pink-lt); color: var(--pink); }
+
+    /* Hamburger */
+    .nav-ham {
+      display: none; flex-direction: column; gap: 5px;
+      background: none; border: none; cursor: pointer; padding: 4px;
+    }
+    .nav-ham span {
+      display: block; width: 24px; height: 2px;
+      background: var(--pink); border-radius: 2px;
+      transition: all .3s ease;
+    }
+    .mobile-menu {
+      display: none; position: fixed; top: 70px; left: 0; right: 0;
+      background: var(--white); z-index: 99;
+      box-shadow: 0 8px 30px rgba(0,0,0,.1);
+      padding: 12px 0;
+    }
+    .mobile-menu.open { display: block; }
+    .mobile-menu a {
+      display: block; padding: 15px 28px;
+      font-size: 15px; font-weight: 500; color: var(--gray-txt);
+      transition: color .3s;
+    }
+    .mobile-menu a:hover { color: var(--pink); }
+    .mobile-menu .btn-nav { margin: 12px 24px; display: block; text-align: center; }
+
+    /* ────────────── HERO ────────────── */
+    #inicio {
+      min-height: 70vh;
+      background: #fff;
+      display: flex; align-items: center; justify-content: center;
+      position: relative; overflow: hidden;
+    }
+    /* Animated blobs */
+    .hero-blob {
+      position: absolute; border-radius: 50%;
+      filter: blur(60px); opacity: .55;
+      pointer-events: none;
+    }
+    .hero-blob-1 {
+      width: 520px; height: 520px;
+      background: var(--pink-lt);
+      top: -120px; left: -100px;
+      animation: blob-drift 10s ease-in-out infinite alternate;
+    }
+    .hero-blob-2 {
+      width: 380px; height: 380px;
+      background: rgba(233,30,99,.18);
+      bottom: -80px; right: -60px;
+      animation: blob-drift 13s ease-in-out infinite alternate-reverse;
+    }
+    .hero-blob-3 {
+      width: 250px; height: 250px;
+      background: var(--pink-lt);
+      top: 50%; right: 38%;
+      animation: blob-drift 8s ease-in-out infinite alternate;
+    }
+    @keyframes blob-drift {
+      0%   { transform: translate(0, 0) scale(1); }
+      33%  { transform: translate(30px, -20px) scale(1.05); }
+      66%  { transform: translate(-15px, 25px) scale(.97); }
+      100% { transform: translate(20px, 10px) scale(1.03); }
+    }
+    .hero-inner {
+      max-width: 1200px; margin: 0 auto; padding: 80px 24px;
+      display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center;
+    }
+    .hero-text { position: relative; z-index: 2; }
+    .hero-h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(44px, 6vw, 68px);
+      font-weight: 700; line-height: 1.1;
+      color: var(--pink); margin-bottom: 16px;
+    }
+    .hero-sub {
+      font-size: clamp(18px, 2.5vw, 26px);
+      font-weight: 400; color: var(--gray-txt);
+      margin-bottom: 12px;
+    }
+    .hero-tag {
+      font-size: 16px; color: var(--gray-sec);
+      line-height: 1.6; margin-bottom: 40px;
+    }
+    .btn-primary {
+      display: inline-block;
+      background: var(--pink); color: var(--white);
+      border: 2px solid var(--pink);
+      border-radius: 50px; padding: 16px 50px;
+      font-size: 16px; font-weight: 600;
+      font-family: 'Poppins', sans-serif;
+      cursor: pointer; transition: all .3s ease;
+    }
+    .btn-primary:hover { background: var(--white); color: var(--pink); }
+
+    .hero-img {
+      border-radius: 24px; overflow: hidden;
+      box-shadow: 0 20px 60px rgba(233,30,99,.15);
+      max-height: 480px;
+    }
+    .hero-img img { width: 100%; height: 100%; object-fit: cover; }
+
+
+    /* ────────────── PRODUCTOS ────────────── */
+    #productos {
+      padding: 100px 0;
+      background: var(--white);
+    }
+    .section-header { text-align: center; margin-bottom: 60px; padding: 0 24px; }
+    .section-h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(32px, 4vw, 46px);
+      font-weight: 700; color: var(--pink);
+      margin-bottom: 14px;
+    }
+    .section-sub { font-size: 16px; color: var(--gray-sec); }
+
+    /* Carousel */
+    .carousel-wrapper { overflow: hidden; position: relative; }
+    .carousel-track {
+      display: flex; gap: 30px;
+      animation: scroll-left 30s linear infinite;
+      width: max-content;
+    }
+    .carousel-wrapper:hover .carousel-track { animation-play-state: paused; }
+
+    @keyframes scroll-left {
+      0%   { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+
+    .product-card {
+      width: 300px; flex-shrink: 0;
+      background: var(--gray-bg);
+      border-radius: 16px; padding: 20px;
+      box-shadow: 0 4px 20px rgba(233,30,99,.06);
+      transition: box-shadow .3s ease;
+      cursor: pointer;
+    }
+    .product-card:hover {
+      box-shadow: 0 12px 40px rgba(233,30,99,.18);
+    }
+    .product-img {
+      height: 200px; border-radius: 12px;
+      overflow: hidden; background: var(--pink-lt);
+    }
+    .product-img img { width: 100%; height: 100%; object-fit: cover; }
+    .product-name {
+      font-size: 16px; font-weight: 600; color: var(--pink);
+      margin-top: 16px;
+    }
+    .product-desc {
+      font-size: 13px; color: var(--gray-sec);
+      line-height: 1.5; margin-top: 8px;
+    }
+    .btn-card {
+      display: inline-block; margin-top: 14px;
+      background: var(--pink); color: var(--white);
+      border-radius: 20px; padding: 8px 18px;
+      font-size: 12px; font-weight: 600;
+      transition: all .3s ease; cursor: pointer;
+    }
+    .btn-card:hover { background: var(--pink-lt); color: var(--pink); }
+
+    /* ────────────── SOBRE NOSOTROS ────────────── */
+    #sobre-nosotros {
+      padding: 100px 24px;
+      background: var(--pink-lt);
+    }
+    .about-inner {
+      max-width: 800px; margin: 0 auto;
+    }
+    .about-inner .section-h2 { text-align: left; }
+    .about-p {
+      font-size: 16px; line-height: 1.9;
+      color: var(--gray-txt); margin-bottom: 16px;
+    }
+    .about-checks { margin-top: 28px; display: flex; flex-direction: column; gap: 12px; }
+    .check-item {
+      display: flex; align-items: center; gap: 12px;
+      font-size: 15px; font-weight: 500; color: var(--gray-txt);
+    }
+    .check-icon {
+      width: 28px; height: 28px; border-radius: 50%;
+      background: var(--pink); display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+    .check-icon svg { width: 14px; height: 14px; stroke: #fff; fill: none; stroke-width: 2.5; }
+
+    /* ────────────── SOBRE VANESA ────────────── */
+    #vanesa {
+      padding: 100px 24px;
+      background: var(--white);
+    }
+    .vanesa-inner {
+      max-width: 1100px; margin: 0 auto;
+      display: grid; grid-template-columns: 280px 1fr; gap: 60px; align-items: start;
+    }
+    .vanesa-photo {
+      width: 280px; height: 320px;
+      border-radius: 20px; overflow: hidden;
+      box-shadow: 0 16px 50px rgba(233,30,99,.15);
+      flex-shrink: 0;
+    }
+    .vanesa-photo img { width: 100%; height: 100%; object-fit: cover; }
+    .vanesa-content { }
+    @media (max-width: 768px) {
+      .vanesa-inner { grid-template-columns: 1fr; }
+      .vanesa-photo { width: 180px; height: 200px; margin: 0 auto; }
+    }
+    .vanesa-badges {
+      display: flex; flex-wrap: wrap; gap: 12px; margin-top: 28px;
+    }
+    .badge {
+      display: flex; align-items: center; gap: 8px;
+      background: var(--pink-dim); border: 1px solid rgba(233,30,99,.2);
+      border-radius: 50px; padding: 8px 18px;
+      font-size: 13px; font-weight: 500; color: var(--pink);
+    }
+    .badge svg { width: 16px; height: 16px; stroke: var(--pink); fill: none; stroke-width: 2; }
+    .ig-link {
+      display: inline-block; margin-top: 20px;
+      font-size: 14px; font-weight: 600; color: var(--pink);
+      transition: text-decoration .2s;
+    }
+    .ig-link:hover { text-decoration: underline; }
+
+    /* ────────────── RESEÑAS ────────────── */
+    #resenas {
+      padding: 100px 24px;
+      background: var(--gray-bg);
+    }
+    .reviews-slider { max-width: 1200px; margin: 0 auto; }
+    .reviews-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px;
+      margin-bottom: 40px;
+    }
+    .review-card {
+      background: var(--white);
+      border: 1px solid var(--pink-lt);
+      border-radius: 12px; padding: 28px;
+      box-shadow: 0 2px 12px rgba(0,0,0,.04);
+      transition: box-shadow .3s ease, opacity .4s ease, transform .4s ease;
+    }
+    .review-card:hover { box-shadow: 0 8px 30px rgba(233,30,99,.1); }
+    .review-name { font-size: 15px; font-weight: 700; color: var(--pink); }
+    .review-stars { display: flex; gap: 3px; margin: 8px 0; }
+    .star { color: var(--pink); font-size: 14px; }
+    .review-text {
+      font-size: 13px; color: var(--gray-txt);
+      line-height: 1.7; margin-top: 10px; font-style: italic;
+    }
+    /* Pagination controls */
+    .reviews-controls {
+      display: flex; align-items: center; justify-content: center; gap: 16px;
+    }
+    .rev-btn {
+      width: 44px; height: 44px; border-radius: 50%;
+      border: 2px solid var(--pink); background: none;
+      color: var(--pink); font-size: 18px; cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      transition: all .3s ease; font-family: 'Poppins', sans-serif;
+    }
+    .rev-btn:hover { background: var(--pink); color: var(--white); }
+    .rev-btn:disabled { opacity: .3; cursor: not-allowed; }
+    .rev-dots { display: flex; gap: 8px; align-items: center; }
+    .rev-dot {
+      width: 8px; height: 8px; border-radius: 50%;
+      background: var(--pink-lt); cursor: pointer;
+      transition: all .3s ease; border: none;
+    }
+    .rev-dot.active { background: var(--pink); width: 22px; border-radius: 4px; }
+    @media (max-width: 1024px) { .reviews-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 600px)  { .reviews-grid { grid-template-columns: 1fr; } }
+
+    /* ────────────── CONTACTO ────────────── */
+    #contacto {
+      padding: 100px 24px;
+      background: var(--pink);
+    }
+    .contact-inner {
+      max-width: 900px; margin: 0 auto; text-align: center;
+    }
+    .contact-inner .section-h2 { color: var(--white); }
+    .contact-sub {
+      font-size: 18px; color: var(--pink-lt); margin-bottom: 50px;
+    }
+    .contact-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 30px; margin-bottom: 50px;
+    }
+    .contact-block {
+      display: flex; flex-direction: column; align-items: center; gap: 12px;
+    }
+    .contact-icon {
+      width: 56px; height: 56px; border-radius: 50%;
+      background: var(--pink-lt);
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+    .contact-icon svg { width: 24px; height: 24px; stroke: var(--pink); fill: none; stroke-width: 2; }
+    .contact-link {
+      font-size: 15px; font-weight: 500; color: var(--white);
+      transition: color .3s;
+    }
+    .contact-link:hover { color: var(--pink-lt); }
+    .contact-divider {
+      border: none; border-top: 1px solid rgba(255,255,255,.3);
+      margin: 0 0 40px;
+    }
+    .btn-white {
+      display: inline-block;
+      background: var(--white); color: var(--pink);
+      border: 2px solid var(--white);
+      border-radius: 50px; padding: 16px 50px;
+      font-size: 16px; font-weight: 700;
+      font-family: 'Poppins', sans-serif;
+      cursor: pointer; transition: all .3s ease;
+    }
+    .btn-white:hover { background: var(--pink-lt); border-color: var(--pink-lt); }
+    .horario {
+      font-size: 14px; color: var(--pink-lt); margin-top: 28px;
+    }
+
+    /* ────────────── FOOTER ────────────── */
+    footer {
+      background: var(--dark);
+      padding: 50px 24px;
+      border-top: 2px solid var(--pink);
+    }
+    .footer-inner {
+      max-width: 1200px; margin: 0 auto;
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px;
+    }
+    .footer-logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 20px; font-weight: 700; color: var(--pink);
+      margin-bottom: 10px;
+    }
+    .footer-desc { font-size: 13px; color: rgba(255,255,255,.7); }
+    .footer-h4 {
+      font-size: 13px; font-weight: 700; color: var(--pink);
+      letter-spacing: 1px; text-transform: uppercase;
+      margin-bottom: 14px;
+    }
+    .footer-links { display: flex; flex-direction: column; gap: 8px; }
+    .footer-links a {
+      font-size: 13px; color: rgba(255,255,255,.75);
+      transition: color .3s;
+    }
+    .footer-links a:hover { color: var(--pink-lt); }
+    .footer-copy {
+      max-width: 1200px; margin: 30px auto 0;
+      text-align: center;
+      font-size: 12px; color: rgba(255,255,255,.4);
+      border-top: 1px solid rgba(255,255,255,.08);
+      padding-top: 24px;
+    }
+
+    /* ────────────── RESPONSIVE ────────────── */
+    @media (max-width: 1024px) {
+      .reviews-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    @media (max-width: 768px) {
+      .nav-links, .btn-nav { display: none; }
+      .nav-ham { display: flex; }
+
+      .hero-inner {
+        grid-template-columns: 1fr;
+        padding: 60px 24px;
+        text-align: center;
+      }
+      .hero-img { max-height: 280px; }
+      .btn-primary { padding: 14px 36px; font-size: 15px; }
+
+      #sobre-nosotros, #vanesa { padding: 60px 24px; }
+      #productos, #resenas, #contacto { padding: 60px 0; }
+      #productos .section-header, #resenas .section-header { padding: 0 24px; }
+
+      .contact-grid { grid-template-columns: 1fr; gap: 24px; }
+      .reviews-grid { grid-template-columns: 1fr; }
+      .footer-inner { grid-template-columns: 1fr; gap: 28px; }
+
+      .vanesa-badges { justify-content: flex-start; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .fade-in { transition: none; opacity: 1; transform: none; }
+      .carousel-track { animation: none; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ══════════════════════════ NAVBAR ══════════════════════════ -->
+<nav class="main-nav" role="navigation" aria-label="Menú principal">
+  <div class="nav-inner">
+    <a href="#inicio" class="nav-logo" aria-label="Farmasi — Inicio">
+      <img src="logo.png" alt="Logo Farmasi">
+    </a>
+    <ul class="nav-links" role="list">
+      <li><a href="#inicio">Inicio</a></li>
+      <li><a href="#productos">Productos</a></li>
+      <li><a href="#sobre-nosotros">Sobre Nosotros</a></li>
+      <li><a href="#resenas">Reseñas</a></li>
+      <li><a href="#contacto">Contacto</a></li>
+    </ul>
+    <a href="https://www.farmasi.es/vanesamuinelovzquez1118" target="_blank" rel="noopener" class="btn-nav" aria-label="Ir a la tienda online">Comprar Ahora</a>
+    <button class="nav-ham" id="hamBtn" aria-label="Abrir menú" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- Mobile menu -->
+<div class="mobile-menu" id="mobileMenu" role="dialog" aria-label="Menú móvil">
+  <a href="#inicio" class="mobile-link">Inicio</a>
+  <a href="#productos" class="mobile-link">Productos</a>
+  <a href="#sobre-nosotros" class="mobile-link">Sobre Nosotros</a>
+  <a href="#resenas" class="mobile-link">Reseñas</a>
+  <a href="#contacto" class="mobile-link">Contacto</a>
+  <a href="https://www.farmasi.es/vanesamuinelovzquez1118" target="_blank" rel="noopener" class="btn-nav">Comprar Ahora</a>
+</div>
+
+<!-- ══════════════════════════ HERO ══════════════════════════ -->
+<section id="inicio" aria-labelledby="hero-h1">
+  <div class="hero-blob hero-blob-1" aria-hidden="true"></div>
+  <div class="hero-blob hero-blob-2" aria-hidden="true"></div>
+  <div class="hero-blob hero-blob-3" aria-hidden="true"></div>
+  <div class="hero-inner">
+    <div class="hero-text">
+      <p class="sec-label fade-in">Cosmética Premium Online</p>
+      <h1 class="hero-h1 fade-in delay-1" id="hero-h1">FARMASI</h1>
+      <p class="hero-sub fade-in delay-1">Cosmética Premium para Ti</p>
+      <p class="hero-tag fade-in delay-2">Descubre nuestra colección exclusiva de productos de belleza</p>
+      <a href="https://www.farmasi.es/vanesamuinelovzquez1118" target="_blank" rel="noopener" class="btn-primary fade-in delay-3" aria-label="Ver productos en la tienda">Ver Productos</a>
+    </div>
+    <div class="hero-img fade-in delay-2">
+      <img src="hero.jpg" alt="Productos cosméticos premium Farmasi" loading="eager">
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════ PRODUCTOS ══════════════════════════ -->
+<section id="productos" aria-labelledby="prod-h2">
+  <div class="section-header fade-in">
+    <h2 class="section-h2" id="prod-h2">NUESTROS PRODUCTOS</h2>
+    <p class="section-sub">Selección cuidada de cosmética premium para ti</p>
+  </div>
+
+  <div class="carousel-wrapper" aria-label="Carrusel de productos">
+    <div class="carousel-track" id="carouselTrack">
+      <!-- Cards duplicadas para loop infinito -->
+    </div>
+  </div>
+  <hr class="divider" aria-hidden="true">
+</section>
+
+<!-- ══════════════════════════ SOBRE NOSOTROS ══════════════════════════ -->
+<section id="sobre-nosotros" aria-labelledby="about-h2">
+  <div class="about-inner">
+    <div class="fade-in">
+      <p class="sec-label">Nuestra Historia</p>
+      <h2 class="section-h2" id="about-h2">SOBRE NOSOTROS</h2>
+    </div>
+    <p class="about-p fade-in delay-1">
+      En Farmasi creemos que la belleza es un acto de autocuidado y amor propio. Nuestra misión es poner al alcance de todos los productos cosméticos premium, seleccionados con criterio y expertise.
+    </p>
+    <p class="about-p fade-in delay-1">
+      Trabajamos con las mejores marcas del mercado para ofrecerte una experiencia de compra confiable, con asesoría personalizada y atención al cliente excepcional. Cada producto que ofrecemos ha sido elegido porque cumple con nuestros estándares de calidad, eficacia y seguridad.
+    </p>
+    <p class="about-p fade-in delay-2">
+      Somos un equipo apasionado por la belleza y comprometido con tu satisfacción. Tu confianza es nuestro mayor logro.
+    </p>
+    <div class="about-checks fade-in delay-2">
+      <div class="check-item">
+        <div class="check-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+        </div>
+        Productos Premium Seleccionados
+      </div>
+      <div class="check-item">
+        <div class="check-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+        </div>
+        Asesoría Personalizada
+      </div>
+      <div class="check-item">
+        <div class="check-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+        </div>
+        Garantía de Calidad
+      </div>
+    </div>
+  </div>
+  <hr class="divider" aria-hidden="true">
+</section>
+
+<!-- ══════════════════════════ VANESA ══════════════════════════ -->
+<section id="vanesa" aria-labelledby="vanesa-h2">
+  <div class="vanesa-inner">
+    <div class="vanesa-photo fade-in">
+      <img src="vanesa.jpg" alt="Vanesa Muinelo Vázquez — Farmasi">
+    </div>
+    <div class="vanesa-content">
+    <div class="fade-in">
+      <p class="sec-label">La persona detrás de Farmasi</p>
+      <h2 class="section-h2" id="vanesa-h2">CONOCE A VANESA</h2>
+    </div>
+    <p class="about-p fade-in delay-1">
+      Vanesa Muinelo Vázquez es la gestora detrás de Farmasi. Emprendedora apasionada por la belleza y el bienestar, Vanesa ha dedicado años a conocer en profundidad el mundo de la cosmética premium.
+    </p>
+    <p class="about-p fade-in delay-1">
+      Con un enfoque centrado en el cliente, Vanesa se esfuerza por entender las necesidades individuales de cada persona. Su filosofía es simple: la belleza no debería ser complicada ni inaccesible. Por eso selecciona personalmente cada producto que ofrecemos, asegurando calidad, eficacia y seguridad.
+    </p>
+    <p class="about-p fade-in delay-2">
+      A través de Farmasi, Vanesa ha creado una comunidad de personas que aman cuidarse. Su compromiso es ofrecerte no solo productos, sino asesoría profesional y una experiencia de compra que supere tus expectativas.
+    </p>
+    <div class="vanesa-badges fade-in delay-2">
+      <span class="badge">
+        <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.86 10.5a19.79 19.79 0 01-3.07-8.63A2 2 0 012.79 0h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.91 7.91a16 16 0 006.08 6.08l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 14.92z"/></svg>
+        Atención Personalizada
+      </span>
+      <span class="badge">
+        <svg viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+        Productos Verificados
+      </span>
+      <span class="badge">
+        <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        Comunidad Comprometida
+      </span>
+    </div>
+    <a href="https://www.instagram.com/vanesa_muinelo_vazquez" target="_blank" rel="noopener" class="ig-link fade-in delay-3">
+      Sígueme en @vanesa_muinelo_vazquez
+    </a>
+    </div><!-- end vanesa-content -->
+  </div>
+  <hr class="divider" aria-hidden="true">
+</section>
+
+<!-- ══════════════════════════ RESEÑAS ══════════════════════════ -->
+<section id="resenas" aria-labelledby="rev-h2">
+  <div class="section-header fade-in">
+    <h2 class="section-h2" id="rev-h2">LO QUE DICEN NUESTRAS CLIENTAS</h2>
+  </div>
+  <div class="reviews-slider">
+    <div class="reviews-grid" id="reviewsGrid"></div>
+    <div class="reviews-controls">
+      <button class="rev-btn" id="revPrev" aria-label="Reseñas anteriores">&#8592;</button>
+      <div class="rev-dots" id="revDots"></div>
+      <button class="rev-btn" id="revNext" aria-label="Siguientes reseñas">&#8594;</button>
+    </div>
+  </div>
+  <hr class="divider" aria-hidden="true">
+</section>
+
+<!-- ══════════════════════════ CONTACTO ══════════════════════════ -->
+<section id="contacto" aria-labelledby="contact-h2">
+  <div class="contact-inner">
+    <div class="fade-in">
+      <h2 class="section-h2" id="contact-h2">CONTÁCTANOS</h2>
+      <p class="contact-sub">¿Preguntas? Estamos aquí para ayudarte</p>
+    </div>
+    <div class="contact-grid fade-in delay-1">
+      <div class="contact-block">
+        <div class="contact-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.86 10.5a19.79 19.79 0 01-3.07-8.63A2 2 0 012.79 0h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.91 7.91a16 16 0 006.08 6.08l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 14.92z"/></svg>
+        </div>
+        <a href="tel:+34692851618" class="contact-link">+34 692 851 618</a>
+      </div>
+      <div class="contact-block">
+        <div class="contact-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        </div>
+        <a href="mailto:vanesamv62@gmail.com" class="contact-link">vanesamv62@gmail.com</a>
+      </div>
+      <div class="contact-block">
+        <div class="contact-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+        </div>
+        <a href="https://www.instagram.com/vanesa_muinelo_vazquez" target="_blank" rel="noopener" class="contact-link">@vanesa_muinelo_vazquez</a>
+      </div>
+    </div>
+    <hr class="contact-divider">
+    <a href="https://www.farmasi.es/vanesamuinelovzquez1118" target="_blank" rel="noopener" class="btn-white fade-in delay-2">Ir a la Tienda Online</a>
+    <p class="horario fade-in delay-2">Lunes a Viernes: 08:00 - 18:00</p>
+  </div>
+</section>
+
+<!-- ══════════════════════════ FOOTER ══════════════════════════ -->
+<footer role="contentinfo">
+  <div class="footer-inner">
+    <div>
+      <div class="footer-logo">FARMASI</div>
+      <p class="footer-desc">Cosmética Premium Online</p>
+    </div>
+    <div>
+      <h4 class="footer-h4">Enlaces</h4>
+      <nav class="footer-links" aria-label="Enlaces del footer">
+        <a href="#productos">Productos</a>
+        <a href="#sobre-nosotros">Sobre Nosotros</a>
+        <a href="#resenas">Reseñas</a>
+        <a href="#contacto">Contacto</a>
+      </nav>
+    </div>
+    <div>
+      <h4 class="footer-h4">Síguenos</h4>
+      <div class="footer-links">
+        <a href="https://www.instagram.com/vanesa_muinelo_vazquez" target="_blank" rel="noopener">@vanesa_muinelo_vazquez</a>
+        <a href="mailto:vanesamv62@gmail.com">vanesamv62@gmail.com</a>
+        <a href="tel:+34692851618">+34 692 851 618</a>
+      </div>
+    </div>
+  </div>
+  <p class="footer-copy">© 2025 Farmasi · Cosmética Premium Online · Vanesa Muinelo Vázquez</p>
+</footer>
+
+<script>
+  /* ── PRODUCTS DATA ── */
+  const products = [
+    { img: 'prod1.jpg', name: 'Skincare Collection', desc: 'Rutina completa de cuidado facial con ingredientes de primera calidad.' },
+    { img: 'prod2.jpg', name: 'Body Care Premium', desc: 'Hidratación y nutrición profunda para tu cuerpo. Fórmulas exclusivas.' },
+    { img: 'prod3.jpg', name: 'Facial Serums', desc: 'Concentrados activos para una piel radiante y joven desde el primer uso.' },
+    { img: 'prod4.jpg', name: 'Colección Completa', desc: 'Descubre toda la gama premium de cosmética seleccionada por Vanesa.' },
+    { img: 'prod1.jpg', name: 'Cremas Hidratantes', desc: 'Texturas ligeras y eficaces para todos los tipos de piel.' },
+    { img: 'prod2.jpg', name: 'Aceites Corporales', desc: 'Lujo para tu piel. Aceites nutritivos con aromas exclusivos.' },
+    { img: 'prod3.jpg', name: 'Tratamientos Faciales', desc: 'Ciencia y naturaleza combinadas para resultados visibles.' },
+    { img: 'prod4.jpg', name: 'Kits de Belleza', desc: 'Sets completos perfectos para regalar o para tu rutina diaria.' },
+  ];
+
+  /* Build carousel (duplicated for infinite loop) */
+  const track = document.getElementById('carouselTrack');
+  const allProds = [...products, ...products]; // duplicate for seamless loop
+  allProds.forEach(p => {
+    const card = document.createElement('div');
+    card.className = 'product-card';
+    card.innerHTML = `
+      <div class="product-img">
+        <img src="${p.img}" alt="${p.name}" loading="lazy">
+      </div>
+      <div class="product-name">${p.name}</div>
+      <p class="product-desc">${p.desc}</p>
+      <a href="https://www.farmasi.es/vanesamuinelovzquez1118" target="_blank" rel="noopener" class="btn-card">Ver en Tienda</a>
+    `;
+    track.appendChild(card);
+  });
+
+  /* ── REVIEWS DATA ── */
+  const reviews = [
+    { name: 'María García',      text: 'Los productos de Farmasi han transformado mi rutina de belleza. Calidad excepcional y atención personalizada de Vanesa. ¡Completamente enamorada!' },
+    { name: 'Sandra López',      text: 'Conozco Farmasi hace 6 meses y nunca vuelvo a otros sitios. Los productos son increíbles y Vanesa siempre me asesora perfectamente.' },
+    { name: 'Elena Rodríguez',   text: 'Excelente calidad. He probado varios productos y todos superan mis expectativas. Recomiendo Farmasi sin dudar.' },
+    { name: 'Laura Martínez',    text: 'La asesoría que me dio Vanesa fue exactamente lo que necesitaba. Encontré los productos perfectos para mi tipo de piel.' },
+    { name: 'Claudia Fernández', text: 'Farmasi es sinónimo de calidad y confianza. Sus productos realmente funcionan. Estoy muy satisfecha.' },
+    { name: 'Daniela Sánchez',   text: 'Vanesa es una profesional en lo suyo. Siempre tiene el producto exacto que necesito. Muy recomendado.' },
+    { name: 'Patricia Gómez',    text: 'Los mejores productos a los mejores precios. Farmasi ha sido un descubrimiento increíble en mi vida.' },
+    { name: 'Sofía Ruiz',        text: 'Mi piel ha mejorado notablemente desde que uso los productos de Farmasi. ¡Gracias Vanesa!' },
+    { name: 'Rosa Jiménez',      text: 'Calidad premium, precios justos y una persona detrás (Vanesa) que realmente se preocupa por ti.' },
+    { name: 'Marta Díaz',        text: 'Llevo un año comprando en Farmasi y es lo mejor que he hecho por mi piel. Altamente recomendado.' },
+    { name: 'Carmen Álvarez',    text: 'Farmasi es mi lugar de confianza para cosmética. Vanesa conoce el mercado como nadie.' },
+    { name: 'Silvia López',      text: 'Nunca había tenido tanta claridad en mi piel. Los productos de Farmasi realmente funcionan.' },
+    { name: 'Beatriz Romero',    text: 'La atención al cliente es impecable. Vanesa se toma tiempo para conocer tus necesidades.' },
+    { name: 'Lorena Castro',     text: 'Cosmética premium sin complicaciones. Eso es Farmasi. Perfectamente recomendado.' },
+    { name: 'Irene Moreno',      text: 'He probado muchas marcas, pero Farmasi ofrece la mejor relación calidad-precio.' },
+    { name: 'Natalia Flores',    text: 'Vanesa no solo vende productos, asesora. Eso es lo que me enamoró de Farmasi.' },
+    { name: 'Verónica Blanco',   text: 'Mi rutina de belleza cambió completamente gracias a Farmasi. Estoy radiante.' },
+    { name: 'Aurelia Guerrero',  text: 'Farmasi es confiable, profesional y siempre disponible. ¡Gracias Vanesa!' },
+    { name: 'Fernanda Herrera',  text: 'Los mejores productos cosméticos que he usado. Farmasi es mi lugar seguro.' },
+    { name: 'Gloria Montoya',    text: 'Calidad, confianza y una excelente asesoría. Eso es Farmasi. Totalmente satisfecha.' },
+  ];
+
+  /* ── REVIEWS PAGINATION ── */
+  const grid    = document.getElementById('reviewsGrid');
+  const dotsEl  = document.getElementById('revDots');
+  const btnPrev = document.getElementById('revPrev');
+  const btnNext = document.getElementById('revNext');
+  const PER_PAGE = 3;
+  let revPage = 0;
+  const totalPages = Math.ceil(reviews.length / PER_PAGE);
+
+  function renderReviews() {
+    grid.innerHTML = '';
+    const start = revPage * PER_PAGE;
+    reviews.slice(start, start + PER_PAGE).forEach(r => {
+      const card = document.createElement('article');
+      card.className = 'review-card';
+      card.innerHTML = `
+        <div class="review-name">${r.name}</div>
+        <div class="review-stars" aria-label="5 estrellas">
+          <span class="star" aria-hidden="true">★</span><span class="star" aria-hidden="true">★</span>
+          <span class="star" aria-hidden="true">★</span><span class="star" aria-hidden="true">★</span>
+          <span class="star" aria-hidden="true">★</span>
+        </div>
+        <p class="review-text">"${r.text}"</p>
+      `;
+      grid.appendChild(card);
+    });
+    // Dots
+    dotsEl.innerHTML = '';
+    for (let i = 0; i < totalPages; i++) {
+      const dot = document.createElement('button');
+      dot.className = 'rev-dot' + (i === revPage ? ' active' : '');
+      dot.setAttribute('aria-label', `Página ${i + 1}`);
+      dot.addEventListener('click', () => { revPage = i; renderReviews(); });
+      dotsEl.appendChild(dot);
+    }
+    btnPrev.disabled = revPage === 0;
+    btnNext.disabled = revPage === totalPages - 1;
+  }
+
+  btnPrev.addEventListener('click', () => { if (revPage > 0) { revPage--; renderReviews(); } });
+  btnNext.addEventListener('click', () => { if (revPage < totalPages - 1) { revPage++; renderReviews(); } });
+  renderReviews();
+
+  /* ── HAMBURGER ── */
+  const hamBtn = document.getElementById('hamBtn');
+  const mobileMenu = document.getElementById('mobileMenu');
+  hamBtn.addEventListener('click', () => {
+    const open = mobileMenu.classList.toggle('open');
+    hamBtn.setAttribute('aria-expanded', open);
+  });
+  document.querySelectorAll('.mobile-link').forEach(link => {
+    link.addEventListener('click', () => {
+      mobileMenu.classList.remove('open');
+      hamBtn.setAttribute('aria-expanded', 'false');
+    });
+  });
+
+  /* ── INTERSECTION OBSERVER (fade-in) ── */
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
